@@ -34,9 +34,8 @@ def page(currentPage, listOfAss):
     
 
     if pygame.mouse.get_pressed(3)[0]:
-        listOfAss = [[interests_p, (0,0)]]
-        if 32 < cursor_x < 60:
-            pass
+        if currentPage == welcome_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
+            listOfAss = [[interests_p, (0,0)]]
         elif 107 < cursor_x < 140:
           pass
             
@@ -57,7 +56,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
 
-        assToDisplay = page(assToDisplay[0], assToDisplay)
+        assToDisplay = page(assToDisplay[0][0], assToDisplay)
         WIN.fill(WHITE)
         for ass in assToDisplay:
             WIN.blit(ass[0], ass[1])
