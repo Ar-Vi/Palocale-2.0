@@ -3,7 +3,7 @@ import os
 
 WIDTH, HEIGHT = 405, 720
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Webcam")
+pygame.display.set_caption("Palocale")
 
 WHITE = (255, 255, 255)
 FPS = 60
@@ -12,8 +12,8 @@ load_images = []
 for file_num in range(len(os.listdir("assets"))):
     load_images.append(pygame.image.load(os.path.join("assets", str(file_num + 1) + ".png")))
 
-welcome_p, interests_p, ints_button, ints_select, verify_p, done_p, friends_p, hangouts_p, explore_p, chat_p, you_p = \
-    load_images
+welcome_p, welc_button, interests_p, ints_button, ints_select, verify_p, done_p, friends_p, hangouts_p, explore_p, \
+chat_p, you_p = load_images
 
 def page(focus):
     cursor_x, cursor_y = pygame.mouse.get_pos()
