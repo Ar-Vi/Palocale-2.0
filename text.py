@@ -3,8 +3,8 @@ import pygame as pg
 
 pg.init()
 screen = pg.display.set_mode((640, 480))
-COLOR_INACTIVE = pg.Color('lightskyblue3')
-COLOR_ACTIVE = pg.Color('dodgerblue2')
+COLOR_INACTIVE = (255, 255, 255)
+COLOR_ACTIVE = (248, 173, 24)
 FONT = pg.font.Font(None, 32)
 
 class InputBox:
@@ -29,8 +29,7 @@ class InputBox:
         if event.type == pg.KEYDOWN:
             if self.active:
                 if event.key == pg.K_RETURN:
-                    print(self.text)
-                    self.text = ''
+                    self.active = False
                 elif event.key == pg.K_BACKSPACE:
                     self.text = self.text[:-1]
                 else:
@@ -65,7 +64,7 @@ def main():
         for box in input_boxes:
             box.update()
 
-        screen.fill((30, 30, 30))
+        screen.fill((255, 255, 255))
         for box in input_boxes:
             box.draw(screen)
 
