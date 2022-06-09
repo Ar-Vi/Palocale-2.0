@@ -30,9 +30,15 @@ def page(currentPage, listOfAss, input_boxes):
         if [ints_button, (0,0)] not in listOfAss:
             listOfAss.append([ints_button, (0,0)])
         
-    if key[pygame.K_a]:
+    if currentPage == interests_p and key[pygame.K_RIGHT]:
             listOfAss = [[verify_p, (0,0)]]
            #add INPUT BOXES HERE IF NOT LAZY
+    if key[pygame.K_LEFT]:
+            listOfAss = [[welcome_p, (0,0)]]
+            i1 = InputBox(73, 358, 258, 38)
+            i2 = InputBox(161, 412, 83, 38)
+            input_boxes = [i1, i2]
+
 
     if pygame.mouse.get_pressed(3)[0]: # 
         if currentPage == welcome_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
@@ -41,7 +47,7 @@ def page(currentPage, listOfAss, input_boxes):
             return listOfAss, input_boxes
         #elif currentPage == interests_p and len(listOfAss) > 4 and 163 < cursor_x < 241 and 490 < cursor_y < 569:
         if currentPage == done_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
-            pygame.time.wait(2000)
+            pygame.time.wait(3500)
             const.main()
 
         if currentPage == verify_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
