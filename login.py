@@ -12,10 +12,10 @@ ORANGE = (248, 173, 24)
 FPS = 50
 
 load_images = []
-for num in range(1, 8):
+for num in range(1, 16):
     load_images.append(pygame.image.load(os.path.join("assets", str(num) + ".png")))
 
-welcome_p, welcome_button, interests_p, ints_button, ints_select, verify_p, done_p = \
+welcome_p, welcome_button, interests_p, ints_button, A1, B1, C1, A2, B2, C2, A3, B3, C3, verify_p, done_p = \
     load_images
 
 
@@ -24,7 +24,7 @@ def page(currentPage, listOfAss, input_boxes):
     
     if currentPage == welcome_p and len(input_boxes[0].text) > 1 and len(input_boxes[1].text) > 1:
         listOfAss.append([welcome_button, (0,0)])
-    elif currentPage == interests_p and len(listOfAss) > 2:
+    elif currentPage == interests_p and len(listOfAss) > 4:
         listOfAss.append([ints_button, (0,0)])
 
     if pygame.mouse.get_pressed(3)[0]: # 
@@ -32,8 +32,10 @@ def page(currentPage, listOfAss, input_boxes):
             listOfAss = [[interests_p, (0,0)]]
             input_boxes = []
 
-        elif currentPage == interests_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
-            listOfAss.append([ints_select, (0,0)])
+        elif currentPage == interests_p and 30 < cursor_x < 137 and 172 < cursor_y < 278:
+            listOfAss.append([A1, (0,0)])
+        elif currentPage == interests_p and 148 < cursor_x < 256 and 172 < cursor_y < 278:
+            listOfAss.append([B1, (0,0)])
         elif currentPage == interests_p and len(listOfAss) > 1 and 163 < cursor_x < 241 and 490 < cursor_y < 569:
             listOfAss = [[verify_p, (0,0)]]
 
