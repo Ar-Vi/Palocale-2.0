@@ -40,7 +40,10 @@ def page(currentPage, listOfAss, input_boxes):
             input_boxes = []
             return listOfAss, input_boxes
         #elif currentPage == interests_p and len(listOfAss) > 4 and 163 < cursor_x < 241 and 490 < cursor_y < 569:
-           
+        if currentPage == done_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
+            pygame.time.wait(2000)
+            const.main()
+
         if currentPage == verify_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
             listOfAss = [[done_p, (0,0)]]
 
