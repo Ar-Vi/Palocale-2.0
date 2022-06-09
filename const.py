@@ -12,8 +12,8 @@ load_images = []
 for file_num in range(len(os.listdir("assets"))):
     load_images.append(pygame.image.load(os.path.join("assets", str(file_num + 1) + ".png")))
 
-welcome_p, welc_button, interests_p, ints_button, ints_select, verify_p, done_p, friends_p, hangouts_p, explore_p, \
-chat_p, you_p = load_images
+welcome_p, welc_button, interests_p, ints_button, A1, B1, C1, A2, B2, C2, A3, B3, C3, verify_p, done_p, friends_p, \
+hangouts_p, explore_p, chat_p, you_p = load_images
 
 def page(focus):
     cursor_x, cursor_y = pygame.mouse.get_pos()
