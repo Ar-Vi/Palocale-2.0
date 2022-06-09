@@ -9,7 +9,7 @@ pygame.display.set_caption("Palocale")
 
 WHITE = (255, 255, 255)
 ORANGE = (248, 173, 24)
-FPS = 60
+FPS = 50
 
 load_images = []
 for num in range(1, 8):
@@ -22,15 +22,21 @@ welcome_p, welcome_button, interests_p, ints_button, ints_select, verify_p, done
 def page(currentPage, listOfAss, input_boxes):
     cursor_x, cursor_y = pygame.mouse.get_pos()
     
-    if currentPage == welcome_p and len(input_boxes[0].text) > 1 and len(input_boxes[0].text) > 1:
+    if currentPage == welcome_p and len(input_boxes[0].text) > 1 and len(input_boxes[1].text) > 1:
         listOfAss.append([welcome_button, (0,0)])
+    elif currentPage == interests_p and len(listOfAss) > 2:
+        listOfAss.append([ints_button, (0,0)])
+
     if pygame.mouse.get_pressed(3)[0]: # 
         if currentPage == welcome_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
             listOfAss = [[interests_p, (0,0)]]
             input_boxes = []
 
-        elif 107 < cursor_x < 140:
-          pass
+        elif currentPage == interests_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
+            listOfAss.append([ints_select, (0,0)])
+        elif currentPage == interests_p and len(listOfAss) > 1 and 163 < cursor_x < 241 and 490 < cursor_y < 569:
+            listOfAss = [[verify_p, (0,0)]]
+
             
     else:
         pass
@@ -68,6 +74,7 @@ def main():
                 box.handle_event(event)
         
         assToDisplay, input_boxes = page(assToDisplay[0][0], assToDisplay, input_boxes)
+
         WIN.fill(WHITE)
         for ass in assToDisplay:
             WIN.blit(ass[0], ass[1])

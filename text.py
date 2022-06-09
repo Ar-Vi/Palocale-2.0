@@ -5,6 +5,7 @@ pg.init()
 screen = pg.display.set_mode((405, 720))
 COLOR_INACTIVE = (255, 255, 255)
 COLOR_ACTIVE = (248, 173, 24)
+BLACK = (0, 0, 0)
 FONT = pg.font.Font(None, 32)
 
 class InputBox:
@@ -13,7 +14,7 @@ class InputBox:
         self.rect = pg.Rect(x, y, w, h,)
         self.color = COLOR_INACTIVE
         self.text = text
-        self.txt_surface = FONT.render(text, True, self.color)
+        self.txt_surface = FONT.render(text, True, BLACK)
         self.active = False
 
     def handle_event(self, event):
@@ -35,7 +36,7 @@ class InputBox:
                 else:
                     self.text += event.unicode
                 # Re-render the text.
-                self.txt_surface = FONT.render(self.text, True, self.color)
+                self.txt_surface = FONT.render(self.text, True, BLACK)
 
 
     def draw(self, screen):
