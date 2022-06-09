@@ -44,7 +44,7 @@ def page(currentPage, listOfAss, input_boxes):
         if currentPage == welcome_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
             for box in input_boxes:
                 user_input.append(box.text)
-            print(user_input)
+
             listOfAss = [[interests_p, (0,0)]]
             input_boxes = []
             return listOfAss, input_boxes
@@ -52,7 +52,7 @@ def page(currentPage, listOfAss, input_boxes):
         #elif currentPage == interests_p and len(listOfAss) > 4 and 163 < cursor_x < 241 and 490 < cursor_y < 569:
         if currentPage == done_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
             pygame.time.wait(3500)
-            const.main()
+            const.main(user_input)
 
         elif currentPage == verify_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
             listOfAss = [[done_p, (0,0)]]
@@ -130,6 +130,7 @@ def main():
         
         pygame.display.update()
         #print(len(assToDisplay))
+
     pygame.quit()
 
 if __name__ == "__main__":
