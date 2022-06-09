@@ -2,7 +2,7 @@ import pygame as pg
 
 
 pg.init()
-screen = pg.display.set_mode((640, 480))
+screen = pg.display.set_mode((405, 720))
 COLOR_INACTIVE = (255, 255, 255)
 COLOR_ACTIVE = (248, 173, 24)
 FONT = pg.font.Font(None, 32)
@@ -10,7 +10,7 @@ FONT = pg.font.Font(None, 32)
 class InputBox:
 
     def __init__(self, x, y, w, h, text=''):
-        self.rect = pg.Rect(x, y, w, h)
+        self.rect = pg.Rect(x, y, w, h,)
         self.color = COLOR_INACTIVE
         self.text = text
         self.txt_surface = FONT.render(text, True, self.color)
@@ -36,10 +36,7 @@ class InputBox:
                     self.text += event.unicode
                 # Re-render the text.
                 self.txt_surface = FONT.render(self.text, True, self.color)
-    def update(self):
-        # Resize the box if the text is too long.
-        width = max(200, self.txt_surface.get_width()+10)
-        self.rect.w = width
+
 
     def draw(self, screen):
         # Blit the text.
@@ -49,8 +46,8 @@ class InputBox:
 
 def main():
     clock = pg.time.Clock()
-    input_box1 = InputBox(100, 100, 140, 32)
-    input_box2 = InputBox(100, 300, 140, 32)
+    input_box1 = InputBox(73, 360, 258, 34)
+    input_box2 = InputBox(161, 412, 83, 36)
     input_boxes = [input_box1, input_box2]
     done = False
 
@@ -61,10 +58,8 @@ def main():
             for box in input_boxes:
                 box.handle_event(event)
 
-        for box in input_boxes:
-            box.update()
 
-        screen.fill((255, 255, 255))
+        screen.fill((0, 0, 0))
         for box in input_boxes:
             box.draw(screen)
 

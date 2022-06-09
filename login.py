@@ -8,6 +8,7 @@ WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Palocale")
 
 WHITE = (255, 255, 255)
+ORANGE = (248, 173, 24)
 FPS = 60
 
 load_images = []
@@ -50,9 +51,9 @@ Done button: 163, 491 to 241, 569
 
 def main():
     assToDisplay = [[welcome_p, (0,0)]]
-    input_box1 = InputBox(73, 360, 1000, 34)
+    input_box1 = InputBox(73, 360, 258, 34)
     input_box2 = InputBox(161, 412, 83, 36)
-    input_boxes = [input_box1, input_box2]
+    input_boxes = [input_box1, input_box2]#
     clock = pygame.time.Clock()
     run = True
 
@@ -69,12 +70,12 @@ def main():
         for ass in assToDisplay:
             WIN.blit(ass[0], ass[1])
         
-        for box in input_boxes:
-            box.update()
-        
+       
         for box in input_boxes:
             box.draw(WIN)
-
+        
+        #pygame.draw.rect(WIN, ORANGE, (73, 360, 258, 34), 2)
+       
         pygame.display.update()
 
     pygame.quit()
