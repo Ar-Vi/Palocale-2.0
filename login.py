@@ -9,7 +9,7 @@ pygame.display.set_caption("Palocale")
 
 WHITE = (255, 255, 255)
 ORANGE = (248, 173, 24)
-FPS = 50
+FPS = 100
 
 load_images = []
 for num in range(1, 16):
@@ -36,9 +36,26 @@ def page(currentPage, listOfAss, input_boxes):
             listOfAss.append([A1, (0,0)])
         elif currentPage == interests_p and 148 < cursor_x < 256 and 172 < cursor_y < 278:
             listOfAss.append([B1, (0,0)])
+        elif currentPage == interests_p and 267 < cursor_x < 374 and 172 < cursor_y < 278:
+            listOfAss.append([C1, (0,0)])
+
+        elif currentPage == interests_p and 30 < cursor_x < 137 and 294 < cursor_y < 400:
+            listOfAss.append([A2, (0,0)])
+        elif currentPage == interests_p and 148 < cursor_x < 256 and 294 < cursor_y < 400:
+            listOfAss.append([B2, (0,0)])
+        elif currentPage == interests_p and 267 < cursor_x < 374 and 294 < cursor_y < 400:
+            listOfAss.append([C2, (0,0)])
+
+        elif currentPage == interests_p and 30 < cursor_x < 137 and 417 < cursor_y < 522:
+            listOfAss.append([A3, (0,0)])
+        elif currentPage == interests_p and 148 < cursor_x < 256 and 417 < cursor_y < 522:
+            listOfAss.append([B3, (0,0)])
+        elif currentPage == interests_p and 267 < cursor_x < 374 and 417 < cursor_y < 522:
+            listOfAss.append([C3, (0,0)])
+
         elif currentPage == interests_p and len(listOfAss) > 1 and 163 < cursor_x < 241 and 490 < cursor_y < 569:
             listOfAss = [[verify_p, (0,0)]]
-
+        
             
     else:
         pass
