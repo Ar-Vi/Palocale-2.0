@@ -18,7 +18,7 @@ for num in range(1, 16):
 welcome_p, welcome_button, interests_p, ints_button, A1, B1, C1, A2, B2, C2, A3, B3, C3, verify_p, done_p = \
     load_images
 
-
+user_input = []
 def page(currentPage, listOfAss, input_boxes):
     cursor_x, cursor_y = pygame.mouse.get_pos()
     key = pygame.key.get_pressed()
@@ -42,16 +42,21 @@ def page(currentPage, listOfAss, input_boxes):
 
     if pygame.mouse.get_pressed(3)[0]: # 
         if currentPage == welcome_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
+            for box in input_boxes:
+                user_input.append(box.text)
+            print(user_input)
             listOfAss = [[interests_p, (0,0)]]
             input_boxes = []
             return listOfAss, input_boxes
+
         #elif currentPage == interests_p and len(listOfAss) > 4 and 163 < cursor_x < 241 and 490 < cursor_y < 569:
         if currentPage == done_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
             pygame.time.wait(3500)
             const.main()
 
-        if currentPage == verify_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
+        elif currentPage == verify_p and 163 < cursor_x < 241 and 490 < cursor_y < 569:
             listOfAss = [[done_p, (0,0)]]
+            return listOfAss, input_boxes
 
         elif currentPage == interests_p:
 
