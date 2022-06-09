@@ -7,4 +7,3 @@ Ints button: 163, 556 to 241, 635
 Veri button: 163, 508 to 241, 587
 
 Done button: 163, 491 to 241, 569"""
-print("hi")
